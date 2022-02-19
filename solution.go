@@ -19,8 +19,8 @@ const (
 )
 
 func calcEquilateralFigurineSquare(sideLen float64, sidesNum intCustomType) float64 {
-	alpha := 2 * math.Pi / float64(sidesNum)
-	return math.Pow(sideLen, 2) / (4 * math.Tan(alpha/2))
+	alpha := 2 * math.Pi / float64(int(sidesNum))
+	return float64(int(sidesNum)) * math.Pow(sideLen, 2) / (4 * math.Tan(alpha/2))
 }
 
 func CalcSquare(sideLen float64, sidesNum intCustomType) float64 {

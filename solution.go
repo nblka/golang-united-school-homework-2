@@ -12,6 +12,12 @@ import "math"
 
 type intCustomType int
 
+const (
+	SidesCircle   intCustomType = 0
+	SidesTriangle intCustomType = 3
+	SidesSquare   intCustomType = 4
+)
+
 func calcEquilateralFigurineSquare(sideLen float64, sidesNum intCustomType) float64 {
 	alpha := 2 * math.Pi / float64(sidesNum)
 	return math.Pow(sideLen, 2) / (4 * math.Tan(alpha/2))
@@ -19,11 +25,11 @@ func calcEquilateralFigurineSquare(sideLen float64, sidesNum intCustomType) floa
 
 func CalcSquare(sideLen float64, sidesNum intCustomType) float64 {
 	switch sidesNum {
-	case 0:
+	case SidesCircle:
 		return math.Pow(sideLen, 2) * math.Pi
-	case 3:
+	case SidesTriangle:
 		fallthrough
-	case 4:
+	case SidesSquare:
 		return calcEquilateralFigurineSquare(sideLen, sidesNum)
 	default:
 		return 0
